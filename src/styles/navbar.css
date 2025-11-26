@@ -1,0 +1,120 @@
+.navbar {
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(142, 209, 248, 0.15);
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: box-shadow 0.3s ease;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.brand {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0b0c0c;
+  letter-spacing: 0.5px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-btn {
+  padding: 0.6rem 1.2rem;
+  background-color: transparent;
+  color: #0b0c0c;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+  background-color: #0b0c0c;
+  color: #ffffff;
+  border-color: #0b0c0c;
+}
+
+.nav-btn.active {
+  background-color: #d1d1d1; /* soft cool gray */
+  color: #0b0c0c;            /* deep black */
+  font-weight: 700;
+  border-color: #b0b0b0;     /* slightly darker gray for contrast */
+}
+
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .navbar-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .nav-btn {
+    width: 100%;
+    text-align: left;
+  }
+}
+/* Hide toggle on desktop */
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Mobile menu styles */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    color: #0b0c0c;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-btn {
+    width: 100%;
+    text-align: left;
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+  }
+
+  .nav-btn:last-child {
+    border-bottom: none;
+  }
+}

@@ -1,0 +1,175 @@
+/* Resume Page Layout */
+.resume-page {
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #27272a, #000000, #27272a);
+  padding: 5rem 2rem;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.resume-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Capsule Section */
+.resume-capsule {
+  flex: 1 1 500px;
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 2rem;
+  padding: 2rem;
+}
+
+.capsule-label {
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  color: #a7f3d0;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.capsule-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.capsule-desc {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.capsule-list {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 2rem;
+}
+
+.capsule-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.capsule-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #6ee7b7;
+  border-radius: 50%;
+  margin-top: 4px;
+}
+
+/* Buttons */
+.capsule-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-primary,
+.btn-outline {
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: white;
+  color: #1c1c1c;
+}
+
+.btn-primary:hover {
+  background-color: #807e7e;
+}
+
+.btn-outline {
+  border: 2px solid white;
+  color: rgb(10, 10, 10);
+}
+
+.btn-outline:hover {
+  background-color: rgb(160, 158, 158);
+  color: #1c1c1c;
+}
+
+/* Snapshot Section */
+.resume-snapshot {
+  flex: 1 1 500px;
+  background-color: white;
+  color: #1c1c1c;
+  border-radius: 2rem;
+  padding: 2rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.snapshot-label {
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  color: #666;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.snapshot-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.snapshot-desc {
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.snapshot-details {
+  display: grid;
+  gap: 1rem;
+}
+
+.detail-box {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.detail-label {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  color: #888;
+  letter-spacing: 0.3em;
+  margin-bottom: 0.5rem;
+}
+
+.detail-value {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.snapshot-note {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .resume-wrapper {
+    flex-direction: column;
+  }
+
+  .resume-capsule,
+  .resume-snapshot {
+    flex: 1 1 100%;
+  }
+}

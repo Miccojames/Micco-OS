@@ -1,0 +1,136 @@
+.home {
+  padding: 4rem 2rem;
+  background-color: #f9f9f9;
+}
+
+.home-content {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.intro {
+  flex: 1;
+  min-width: 300px;
+}
+
+.status {
+  display: inline-block;
+  color: green;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin: 0.5rem 0;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 1.5rem;
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  padding: 0.6rem 1.2rem;
+  background-color: #0b0c0c;       /* deep black for consistency */
+  color: #f5f5f5;                  /* soft white for readability */
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1rem;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #2c2c2c;       /* subtle hover effect */
+  color: #ffffff;
+}
+
+/* Secondary button with elegant contrast */
+.btn.secondary {
+  background-color: #d4d4d4;       /* warm gray */
+  color: #1a1a1a;
+  border: 2px solid #b0b0b0;
+}
+
+.btn.secondary:hover {
+  background-color: #c0c0c0;
+  color: #0b0c0c;
+}
+
+/* Social icons */
+.social-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icons a {
+  font-size: 1.5rem;
+  color: gray; /* default gray */
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #080808; /* dark on hover */
+  transform: scale(1.2); /* subtle zoom effect */
+}
+
+.profile-section {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+}
+
+.profile-pic {
+  width: 250px;
+  height: 250px;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .home-content {
+    flex-direction: column-reverse; /* puts image above intro */
+    align-items: center;
+    text-align: center;
+  }
+
+  .intro {
+    text-align: center; /* center text on mobile */
+  }
+
+  .buttons {
+    justify-content: center; /* center buttons */
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+
+  .profile-pic {
+    width: 200px; /* slightly smaller on mobile */
+    height: 200px;
+  }
+}

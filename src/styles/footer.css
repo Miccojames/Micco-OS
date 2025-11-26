@@ -1,0 +1,131 @@
+.footer {
+  background-color: #2c3e50;
+  color: #ffffff;
+  padding: 3rem 2rem 1rem;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-studio,
+.footer-nav,
+.footer-contact {
+  flex: 1 1 250px;
+}
+
+.studio-name,
+.studio-desc,
+.footer-nav h3,
+.footer-nav a,
+.footer-contact h3,
+.footer-contact p,
+.footer-bottom p {
+  color: #ffffff;
+}
+
+.footer-icons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.footer-icons a {
+  font-size: 1.5rem;
+  color: #ffffff;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-icons a:hover {
+  color: #3498db;
+  transform: scale(1.2);
+}
+
+.footer-nav h3,
+.footer-contact h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer-nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-nav li {
+  margin-bottom: 0.4rem;
+}
+
+.footer-nav a {
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+  color: #3498db;
+}
+
+/* Active state (same as navbar) */
+.footer-nav a.active {
+  font-weight: bold;
+  border-bottom: 2px solid #3498db;
+}
+
+.footer-contact p {
+  font-size: 0.9rem;
+  margin: 0.3rem 0;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.85rem;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Show links stacked or toggled like navbar */
+  .footer-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .footer-icons {
+    justify-content: center;
+  }
+
+  /* Optional: hide links until toggle is clicked */
+  .footer-links {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .footer-links.show {
+    display: flex;
+  }
+
+  .footer-nav .menu-toggle {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-bottom: 1rem;
+  }
+}
