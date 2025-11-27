@@ -79,9 +79,6 @@ export default function Footer({ currentSection, setCurrentSection }) {
         <p>
           © {new Date().getFullYear()} Micco James Ang. All rights reserved.
         </p>
-        <p>
-          Design direction, layout repositioning, and copywriting crafted in Cebu.
-        </p>
       </div>
     </footer>
   );

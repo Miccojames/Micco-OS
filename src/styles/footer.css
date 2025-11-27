@@ -90,42 +90,74 @@
 
 /* Responsive tweaks */
 @media (max-width: 768px) {
-  .footer-container {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  .footer {
+    padding: 2rem 1rem 1rem;
   }
 
-  /* Show links stacked or toggled like navbar */
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: 1.5rem;
+  }
+
+  .footer-studio,
+  .footer-nav,
+  .footer-contact {
+    flex: 1 1 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .studio-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  .studio-desc {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #ccc;
+  }
+
+  .footer-nav h3,
+  .footer-contact h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
   .footer-nav ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 0;
+  }
+
+  .footer-nav li {
+    margin-bottom: 0.2rem;
+  }
+
+  .footer-nav a {
+    font-size: 0.9rem;
+  }
+
+  .footer-contact p {
+    font-size: 0.85rem;
+    margin: 0.2rem 0;
   }
 
   .footer-icons {
-    justify-content: center;
+    justify-content: flex-start;
+    margin-top: 0.5rem;
   }
 
-  /* Optional: hide links until toggle is clicked */
-  .footer-links {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
+  .footer-icons a {
+    font-size: 1.3rem;
   }
 
-  .footer-links.show {
-    display: flex;
-  }
-
-  .footer-nav .menu-toggle {
-    background: none;
-    border: none;
-    color: #ffffff;
-    font-size: 1.5rem;
-    cursor: pointer;
-    margin-bottom: 1rem;
+  .footer-bottom {
+    margin-top: 1rem;
+    font-size: 0.75rem;
+    text-align: left;
+    padding-bottom: 1rem;
   }
 }
