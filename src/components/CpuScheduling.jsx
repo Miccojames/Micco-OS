@@ -9,10 +9,20 @@ export default function CpuScheduling() {
 
   const addProcess = () => {
     if (!arrival || !burst) return;
-    const pid = `P${processes.length + 1}`;
-    setProcesses([...processes, { pid, arrival: parseInt(arrival), burst: parseInt(burst) }]);
+    const pid = `p${processes.length + 1}`;
+    setProcesses([
+      ...processes,
+      { pid, arrival: parseInt(arrival), burst: parseInt(burst) },
+    ]);
     setArrival("");
     setBurst("");
+    setShowResult(false);
+  };
+
+  const removeProcess = (index) => {
+    const updated = [...processes];
+    updated.splice(index, 1);
+    setProcesses(updated);
     setShowResult(false);
   };
 
@@ -23,9 +33,18 @@ export default function CpuScheduling() {
     setShowResult(false);
   };
 
+  const handleVisualize = () => {
+    if (processes.length < 3) {
+      alert("Please enter at least 3 processes.");
+      return;
+    }
+    setShowResult(true);
+  };
+
   const calculateFCFS = () => {
+    const sorted = [...processes].sort((a, b) => a.arrival - b.arrival);
     let time = 0;
-    return processes.map((p) => {
+    return sorted.map((p) => {
       const start = Math.max(time, p.arrival);
       time = start + p.burst;
       const completion = time;
@@ -36,8 +55,13 @@ export default function CpuScheduling() {
   };
 
   const result = calculateFCFS();
-  const avgTAT = result.length ? (result.reduce((sum, p) => sum + p.tat, 0) / result.length).toFixed(2) : "0.00";
-  const avgWT = result.length ? (result.reduce((sum, p) => sum + p.wt, 0) / result.length).toFixed(2) : "0.00";
+  const avgTAT = result.length
+    ? (result.reduce((sum, p) => sum + p.tat, 0) / result.length).toFixed(2)
+    : "0.00";
+  const avgWT = result.length
+    ? (result.reduce((sum, p) => sum + p.wt, 0) / result.length).toFixed(2)
+    : "0.00";
+  const totalCT = result.length ? result[result.length - 1].finish : 0;
 
   return (
     <section className="cpu-wrapper">
@@ -59,7 +83,7 @@ export default function CpuScheduling() {
             onChange={(e) => setBurst(e.target.value)}
           />
           <button className="add-btn" onClick={addProcess}>
-            + Add Task
+            Add Process
           </button>
         </div>
 
@@ -69,15 +93,26 @@ export default function CpuScheduling() {
           <>
             <div className="process-summary">
               {processes.map((p, index) => (
-                <p key={index}>
-                  <strong>{p.pid}</strong> &nbsp; AT: {p.arrival} &nbsp; BT: {p.burst}
-                </p>
+                <div key={index} className="process-row">
+                  <p>
+                    <strong>{p.pid}</strong> &nbsp;
+                    <span>AT: {p.arrival}</span>
+                    <span>BT: {p.burst}</span>
+                  </p>
+                  <button className="remove-btn" onClick={() => removeProcess(index)}>
+                    ✖ Remove
+                  </button>
+                </div>
               ))}
             </div>
 
             <div className="action-buttons">
-              <button className="add-btn" onClick={() => setShowResult(true)}>Visualize FCFS</button>
-              <button className="add-btn" onClick={resetAll}>Reset All</button>
+              <button className="add-btn" onClick={handleVisualize}>
+                Calculate
+              </button>
+              <button className="reset-btn" onClick={resetAll}>
+                Reset
+              </button>
             </div>
           </>
         )}
@@ -88,8 +123,8 @@ export default function CpuScheduling() {
             <div className="gantt-chart">
               {result.map((p, index) => (
                 <div key={index} className="gantt-box">
-                  <span className="gantt-pid">{p.pid}</span>
-                  <span className="gantt-time">{p.start} → {p.finish}</span>
+                  <div className="gantt-label">{p.pid}</div>
+                  <div className="gantt-range">{p.start} – {p.finish}</div>
                 </div>
               ))}
             </div>
@@ -98,12 +133,12 @@ export default function CpuScheduling() {
             <table className="cpu-table">
               <thead>
                 <tr>
-                  <th>P</th>
-                  <th>AT</th>
-                  <th>BT</th>
-                  <th>CT</th>
-                  <th>TAT</th>
-                  <th>WT</th>
+                  <th>Process</th>
+                  <th>Arrival Time</th>
+                  <th>Burst Time</th>
+                  <th>Completion Time</th>
+                  <th>Turn Around Time</th>
+                  <th>Waiting Time</th>
                 </tr>
               </thead>
               <tbody>
@@ -120,10 +155,19 @@ export default function CpuScheduling() {
               </tbody>
             </table>
 
-            <div className="average-values">
-              <h3>Average Values</h3>
-              <p><strong>Average Turnaround Time:</strong> <span className="highlight">{avgTAT}</span></p>
-              <p><strong>Average Waiting Time:</strong> <span className="highlight">{avgWT}</span></p>
+            <div className="summary-card">
+              <div className="stat">
+                Average Turn Around Time
+                <span className="value">{avgTAT}</span>
+              </div>
+              <div className="stat">
+                Average Waiting Time
+                <span className="value">{avgWT}</span>
+              </div>
+              <div className="stat">
+                Total Completion Time
+                <span className="value">{totalCT}</span>
+              </div>
             </div>
           </>
         )}
