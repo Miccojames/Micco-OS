@@ -3,7 +3,7 @@ import '../styles/about.css';
 import profilePic from '../assets/profile.jpg';
 
 export default function About() {
-  const stacks = ['HTML', 'JavaScript', 'React', 'Node', 'CSS', 'Tailwind', 'TypeScript'];
+  const stacks = ['HTML', 'JavaScript', 'React', 'Node.js', 'CSS', 'Tailwind', 'TypeScript'];
 
   return (
     <section id="about" className="about">

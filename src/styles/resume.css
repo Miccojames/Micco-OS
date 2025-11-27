@@ -162,14 +162,58 @@
   color: #777;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .resume-wrapper {
     flex-direction: column;
+    gap: 1.5rem;
   }
 
   .resume-capsule,
   .resume-snapshot {
     flex: 1 1 100%;
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+  }
+
+  .capsule-title {
+    font-size: 2rem;
+  }
+
+  .capsule-desc,
+  .snapshot-desc {
+    font-size: 0.95rem;
+  }
+
+  .capsule-list li {
+    font-size: 0.95rem;
+  }
+
+  .btn-primary,
+  .btn-outline {
+    width: 100%;
+    text-align: center;
+    padding: 0.75rem;
+    font-size: 1rem;
+  }
+
+  .snapshot-title {
+    font-size: 1.6rem;
+  }
+
+  .snapshot-details {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-box {
+    padding: 0.75rem;
+  }
+
+  .detail-value {
+    font-size: 1rem;
+  }
+
+  .snapshot-note {
+    font-size: 0.85rem;
   }
 }
+
