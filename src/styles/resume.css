@@ -1,7 +1,7 @@
 /* Resume Page Layout */
 .resume-page {
   min-height: 100vh;
-  background: linear-gradient(to bottom right, #27272a, #000000, #27272a);
+  background: linear-gradient(to bottom right, #27272a, #131212, #27272a);
   padding: 5rem 2rem;
   color: white;
   font-family: 'Segoe UI', sans-serif;

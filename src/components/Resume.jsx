@@ -61,7 +61,7 @@ export default function Resume({ setCurrentSection }) {
             </div>
             <div className="detail-box">
               <p className="detail-label">Location</p>
-              <p className="detail-value">Cordova, Cebu, Philippines</p>
+              <p className="detail-value">Datag, Buagsong, Cordova, Cebu, Philippines</p>
             </div>
             <div className="detail-box">
               <p className="detail-label">Availability</p>
